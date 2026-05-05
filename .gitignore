@@ -1,0 +1,9 @@
+# Node.js dependencies
+node_modules/
+
+#npm cache
+npm-debug.log*
+
+# OS files
+.DS_Store
+
