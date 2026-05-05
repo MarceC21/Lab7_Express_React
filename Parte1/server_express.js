@@ -33,6 +33,17 @@ app.get("/saludo", (req, res) => {
   res.send("Hola auxiliar, otra vez :S")
 })
 
+//Ruta para status
+app.get("/api/status", (req, res) => {
+    const status = {
+        ok: true, 
+        status: "Servidor funcionando correctamente",
+        puerto: PORT
+    }
+    res.json(status)
+})
+
+
 // Ruta de estudiante
 app.get("/api/student", async (req, res) => {
     try {
@@ -42,6 +53,12 @@ app.get("/api/student", async (req, res) => {
     } catch (error) {
         res.status(404).send("Error, archivo no encontrado")
     }
+})
+
+// Para cualquier otra ruta no definida
+// Se usa use
+app.use((req, res) => {
+    res.status(404).send(`Ruta no encontrada: ${req.url}`)
 })
 
 
