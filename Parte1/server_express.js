@@ -1,18 +1,22 @@
-
-import http from "http"
+// Ahhora usamos express en lugar de htpp 
+import express from "express"
 import fs from "fs/promises"
 import path from "path"
 
+// Importante crear la aplicación de express
+const app = express()
 
+//Se mantiene igual
 const PORT = 3001
 
-// Crear el servidor HTTP
-const server = http.createServer(async (req, res) => {
-  if (req.url === "/") {
-    res.writeHead(200, { "Content-Type": "text/plain" })
-    res.end("Servidor activo")
-    return
-  }
+// Se cambia la creación del servidor para usar express
+// En lugar de: const server = http.createServer(async (req, res) => {.....
+
+// Se cambio a app.get para definir la ruta raíz y enviar una respuesta de texto
+app.get("/", (req, res) => {
+    res.send("Servidor activo")
+})
+
 
   // Ruta de información
   // Se cambio el tipo de contenido a text/plain
