@@ -18,6 +18,32 @@ app.get("/", (req, res) => {
 })
 
 
+// Ruta de información
+app.get("/info", (req, res) => {
+    const info = {
+        mensaje: "La info del servidor/lab",
+        curso: "Sistemas y tecologías web",
+        tecnologia: "JavaScript y Node.js"
+    }
+    res.json(info) // Ahora se usa res.json en vez de res.end
+})
+
+// Ruta para saludo
+app.get("/saludo", (req, res) => {
+  res.send("Hola auxiliar, otra vez :S")
+})
+
+// Ruta de estudiante
+app.get("/api/student", async (req, res) => {
+    try {
+      const filePath = path.join(process.cwd(), "datos.json")
+      const texto = await fs.readFile(filePath, "utf-8") 
+      res.json(JSON.parse(texto)) 
+    } catch (error) {
+        res.status(404).send("Error, archivo no encontrado")
+    }
+})
+
 
 // Iniciar servidor
 app.listen(PORT, () => {
