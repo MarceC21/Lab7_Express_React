@@ -9,15 +9,29 @@ function App() {
     const [input, setInput] = useState('');
 
     const handleButtonClick = (value) => {
+
+        // NUEVO: botón clear
+        if (value === 'C') {
+            setInput('');
+            return;
+        }
+
         if (value === '=') {
-            // Evaluate the expression
+            // evita evaluar vacío (esto sí es necesario)
+            if (!input.trim()) return;
+
             try {
                 setInput(eval(input).toString());
             } catch (error) {
                 setInput('Error');
             }
         } else {
-            setInput(input + value);
+            //pequeño arreglo, si hay "Error" reinicia
+            if (input === 'Error') {
+                setInput(value);
+            } else {
+                setInput(input + value);
+            }
         }
     };
 
@@ -28,5 +42,6 @@ function App() {
         </div>
     );
 }
+
 
 export default App;
