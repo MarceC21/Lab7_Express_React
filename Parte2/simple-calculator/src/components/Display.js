@@ -1,4 +1,4 @@
-// 
+// Conponente para mostrar el valor actual de la calculadora
 // Muestra el valor actual o "0" si está vacío
 
 function Display({ value }) {

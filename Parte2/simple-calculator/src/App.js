@@ -5,6 +5,7 @@ import Display from "./components/Display";
 import ButtonPanel from "./components/ButtonPanel";
 import "./App.css";
 
+// Componente principal de la calculadora
 function App() {
     const [input, setInput] = useState('');
 

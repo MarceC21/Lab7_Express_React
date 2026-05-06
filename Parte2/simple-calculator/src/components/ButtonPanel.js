@@ -1,3 +1,6 @@
+// Componente para el panel de botones de la calculadora
+// Define todos los botoncitos
+
 function ButtonPanel({ onButtonClick }) {
     const buttons = [
         '7', '8', '9', '/',
